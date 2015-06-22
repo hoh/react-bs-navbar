@@ -27,7 +27,7 @@ NavbarDropdownItem = React.createClass({
 
     render: function() {
         return (
-            <li>
+            <li key={this.props.key}>
                 <a href={this.props.href}>
                     <Glyphicon icon={this.props.glyphicon} />
                     {this.props.title}
@@ -50,11 +50,12 @@ NavbarDropdown = React.createClass({
 
     render: function() {
         items = this.props.children.map(function(item, i) {
+            item.key = i;
             return React.createElement(NavbarDropdownItem, item);
         });
 
         return (
-            <li className='dropdown'>
+            <li className='dropdown' key={this.props.key}>
                 <a className='dropdown-toggle' data-toggle='dropdown' href='#'>
                     <Glyphicon icon={this.props.glyphicon} />
                     {this.props.title}
@@ -75,13 +76,13 @@ NavbarLink = React.createClass({
         return {
             title: "Nava",
             glyphicon: null,
-            href: '/'
+            href: '/',
         };
     },
 
     render: function() {
         return (
-            <li>
+            <li key={this.props.key}>
                 <a href={this.props.href}>
                     <Glyphicon icon={this.props.glyphicon} />
                     {this.props.title}
@@ -97,12 +98,13 @@ NavbarNav = React.createClass({
     getDefaultProps: function() {
         return {
             position: null,
-            children: []
+            children: [],
         };
     },
 
     render: function() {
         items = this.props.children.map(function(menu, i) {
+            menu.key = i;
             if (menu.children) {
                 return React.createElement(NavbarDropdown, menu);
             }
@@ -112,7 +114,7 @@ NavbarNav = React.createClass({
         });
 
         return (
-            <ul className={'nav navbar-nav ' + this.props.position}>
+            <ul className={'nav navbar-nav ' + this.props.position} key={this.props.key}>
                 {items}
             </ul>
         );
@@ -171,6 +173,7 @@ Navbar = React.createClass({
         header = React.createElement(NavbarHeader, this.props.header);
 
         items = this.props.children.map(function(navbar, i) {
+            navbar.key = i;
             return React.createElement(NavbarNav, navbar);
         });
 
