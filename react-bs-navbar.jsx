@@ -69,6 +69,29 @@ NavbarDropdown = React.createClass({
 });
 
 
+NavbarLink = React.createClass({
+
+    getDefaultProps: function() {
+        return {
+            title: "Nava",
+            glyphicon: null,
+            href: '/'
+        };
+    },
+
+    render: function() {
+        return (
+            <li>
+                <a href={this.props.href}>
+                    <Glyphicon icon={this.props.glyphicon} />
+                    {this.props.title}
+                </a>
+            </li>
+        );
+    }
+});
+
+
 NavbarNav = React.createClass({
 
     getDefaultProps: function() {
@@ -80,7 +103,12 @@ NavbarNav = React.createClass({
 
     render: function() {
         items = this.props.children.map(function(menu, i) {
-            return React.createElement(NavbarDropdown, menu);
+            if (menu.children) {
+                return React.createElement(NavbarDropdown, menu);
+            }
+            else {
+                return React.createElement(NavbarLink, menu);
+            }
         });
 
         return (
