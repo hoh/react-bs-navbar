@@ -1,4 +1,4 @@
-/* react-bs-navbar: Bootstrap3 Navbar component for ReactJS */
+/* react-bs-navbar: Navbar component for Bootstrap 3 using React */
 
 Glyphicon = React.createClass({
     getDefaultProps: function() {
