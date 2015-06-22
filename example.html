@@ -25,6 +25,29 @@
     <script type="text/jsx" src="react-bs-navbar.jsx"></script>
 
     <script type="text/jsx">
+
+        CustomDropdown = React.createClass({
+            render: function() {
+                return (
+                    <li className="dropdown">
+                        <a className="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span className="glyphicon glyphicon-volume-down"></span>
+                            <span>Custom</span>
+                            <span className="caret"></span>
+                        </a>
+                        <ul className="dropdown-menu" role="menu">
+                            <li>
+                                <a href="/custom">
+                                    <span className="glyphicon glyphicon-volume-off"></span>
+                                    <span>Item</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                );
+            }
+        });
+
         menu = {
             header: {
                 brand: null,
@@ -63,6 +86,7 @@
                                 },
                             ]
                         },
+                        React.createElement(CustomDropdown),
                     ]
                 },
                 {

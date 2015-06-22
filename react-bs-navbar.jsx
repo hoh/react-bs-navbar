@@ -127,12 +127,17 @@ NavbarNav = React.createClass({
 
     render: function() {
         items = this.props.children.map(function(menu, i) {
-            menu.key = i;
-            if (menu.children) {
-                return React.createElement(NavbarDropdown, menu);
-            }
+            if (React.isValidElement(menu))
+                /* Custom React element as Navbar dropdown or link */
+                return menu;
             else {
-                return React.createElement(NavbarLink, menu);
+                menu.key = i;
+                if (menu.children) {
+                    return React.createElement(NavbarDropdown, menu);
+                }
+                else {
+                    return React.createElement(NavbarLink, menu);
+                }
             }
         });
 
