@@ -15,6 +15,29 @@ Glyphicon = React.createClass({
 });
 
 
+NavbarLogo = React.createClass({
+    getDefaultProps: function() {
+        return {
+            alt: 'Brand logo',
+            style: {
+                height: '30px',
+                marginTop: '-5px',
+                display: 'block'
+            }
+        };
+    },
+
+    render: function() {
+        return (
+            <img className='rn-navbar-logo'
+                 src={this.props.src}
+                 alt={this.props.alt}
+                 style={this.props.style} />
+        );
+    }
+});
+
+
 NavbarDropdownItem = React.createClass({
 
     getDefaultProps: function() {
@@ -146,9 +169,7 @@ NavbarHeader = React.createClass({
                     <span className='icon-bar'></span>
                 </button>
                 <a className='navbar-brand' href={this.props.href}>
-                    <img className='rn-navbar-logo'
-                         src={this.props.logo}
-                         alt={this.props.logo_alt} />
+                    <NavbarLogo src={this.props.logo} alt={this.props.alt} />
                     {this.props.brand}
                 </a>
             </div>
