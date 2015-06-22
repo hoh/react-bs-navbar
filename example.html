@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>react-bs-navbar example</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+</head>
+<body>
+    <div id='navbar_component'></div>
+
+    <div class='container'>
+        <h1>React-bs-navbar</h1>
+    </div>
+
+    <!-- Javascript libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+
+    <script type="text/jsx" src="react-bs-navbar.jsx"></script>
+
+    <script type="text/jsx">
+        menu = {
+            header: {
+                brand: "My Brand",
+                href: "/home"
+            },
+            children: [
+                {
+                    position: '',
+                    children: [
+                        {
+                            title: 'One',
+                            glyphicon: 'equalizer',
+                            children: [
+                                {
+                                    title: 'One A',
+                                    glyphicon: 'equalizer',
+                                    href: '/one/A'
+                                },
+                                {
+                                    title: 'One B',
+                                    glyphicon: 'hdd',
+                                    href: '/one/B'
+                                }
+                            ]
+                        },
+                        {
+                            title: 'Two',
+                            glyphicon: 'volume-down',
+                            children: [
+                                {
+                                    title: 'Two A',
+                                    glyphicon: 'volume-off',
+                                    href: '/two/A'
+                                },
+                            ]
+                        },
+                    ]
+                },
+                {
+                    position: 'navbar-right',
+                    children: [
+                        {
+                            title: 'Three',
+                            glyphicon: 'repeat',
+                            children: [
+                                {
+                                    title: 'Three A',
+                                    glyphicon: 'retweet',
+                                    href: '/three/A'
+                                },
+                            ]
+                        },
+                    ]
+                }
+            ]
+        };
+
+        React.render(
+            React.createElement(Navbar, menu),
+            document.getElementById('navbar_component')
+        );
+    </script>
+</body>
+</html>
