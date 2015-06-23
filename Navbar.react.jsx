@@ -66,7 +66,7 @@ var Navbar = {
 
         getDefaultProps: function() {
             return {
-                title: "Nava",
+                title: "Dropdown",
                 glyphicon: null,
                 children: []
             };
@@ -97,7 +97,7 @@ var Navbar = {
 
         getDefaultProps: function() {
             return {
-                title: "Nava",
+                title: "Link",
                 glyphicon: null,
                 href: '/',
             };
