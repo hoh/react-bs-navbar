@@ -48,6 +48,19 @@
             }
         });
 
+        CustomItem = React.createClass({
+            render: function() {
+                return (
+                    <li>
+                        <a href="/custom_item">
+                            <span className="glyphicon glyphicon-volume-off"></span>
+                            <span>Custom Item</span>
+                        </a>
+                    </li>
+                );
+            }
+        });
+
         menu = {
             header: {
                 brand: null,
@@ -86,7 +99,7 @@
                                 },
                             ]
                         },
-                        React.createElement(CustomDropdown),
+                        React.createElement(CustomDropdown, {key: -10}),
                     ]
                 },
                 {
@@ -101,6 +114,7 @@
                                     glyphicon: 'retweet',
                                     href: '/three/A'
                                 },
+                                React.createElement(CustomItem, {key: -10}),
                             ]
                         },
                         {

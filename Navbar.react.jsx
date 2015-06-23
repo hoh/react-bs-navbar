@@ -74,8 +74,13 @@ var Navbar = {
 
         render: function() {
             items = this.props.children.map(function(item, i) {
-                item.key = i;
-                return React.createElement(Navbar.DropdownItem, item);
+                if (React.isValidElement(item))
+                    /* Custom React element as Dropdown item */
+                    return item;
+                else {
+                    item.key = i;
+                    return React.createElement(Navbar.DropdownItem, item);
+                }
             });
 
             return (
